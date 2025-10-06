@@ -1,11 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { Inventario } from './inventario/inventario';
 
 @Component({
   selector: 'app-root',
-  imports: [],
+  standalone: true,
+  imports: [Inventario],
   templateUrl: './app.html',
-  styleUrl: './app.css'
+  styleUrls: ['./app.css'] // ← Cambiado aquí
 })
 export class App {
-  protected readonly title = signal('inventario-app');
+  title = 'inventario-app';
 }

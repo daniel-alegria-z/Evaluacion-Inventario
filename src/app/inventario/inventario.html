@@ -1,0 +1,67 @@
+<div class="row">
+  <!-- Formulario -->
+  <div class="col-md-4">
+    <h3 class="mb-3">Agregar Producto</h3>
+
+    <div class="mb-3">
+      <label class="form-label">Nombre del Producto:</label>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="nombreProducto"
+        placeholder="Ej. Arroz"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Cantidad:</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="cantidad"
+        placeholder="Ej. 100"
+      />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Precio:</label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="precio"
+        placeholder="Ej. 5000"
+      />
+    </div>
+
+    <button class="btn btn-primary w-100" (click)="agregarProducto()">
+      Agregar
+    </button>
+  </div>
+
+  <!-- Tabla de productos -->
+  <div class="col-md-8">
+    <h3 class="mb-3 text-left">Lista de Productos</h3>
+
+    <table class="table table-bordered text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Nombre del Producto</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of productos">
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.cantidad }}</td>
+          <td>${{ p.precio.toFixed(2) }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm me-2">Editar</button>
+            <button class="btn btn-danger btn-sm">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
